@@ -1,32 +1,56 @@
 public class Porblem022 {
     public static void main(String[] args) {
+        String encryptedTxt = encrypt("MEznY BaDZ, CHRON PULK TWOJ I SZESC FLAG@@##123", 2);
 
-        String encryptedText ="MEZNY BADZ, CHRON PULK TWOJ I SZESC FLAG";
-        encryptCezar(encryptedText,2);
-        System.out.println(encryptedText);
-
+        System.out.println(encryptedTxt);
     }
 
-    private static String encryptCezar (String inputText, int key){
-        inputText = inputText.toUpperCase();
-        String outputText = "";
-        int numberText=0;
-        for (int i =0; i < inputText.length(); i++){
-            numberText = inputText.charAt(i);
-            if (numberText>=65 || numberText <= 90 ) {
-                if ( (numberText+key )
+    private static String encrypt(String text, int key) {
+        text = text.toUpperCase();
+        String encrypted = "";
 
-                outputText.charAt(i) = (char) (numberText + key);
-
+        for (int i = 0; i < text.length(); i++) {
+            char currentCharacter = text.charAt(i);
+            if (Character.isUpperCase(currentCharacter)) {
+                int characterIndex = currentCharacter - (char) ('A');
+                int characterShifted = (characterIndex + key) % 26 + (char) ('A');
+                encrypted += ((char) (characterShifted));
+            } else {
+                encrypted += currentCharacter;
             }
-
         }
-        return outputText;
-
+        return encrypted;
     }
 
-    private static void decipherCezar (String inputText){
-
-    }
-
+//    private static String encrypt(String text, int key) {
+//        text = text.toUpperCase();
+//        String encrypted = "";
+//
+//        for (int i = 0; i < text.length(); i++) {
+//            char currentCharacter = text.charAt(i);
+//
+//            if (Character.isUpperCase(currentCharacter)) {
+//
+//                //przeliczamy znak na liczbe z zakresu 0-25   (-65)
+//                int characterIndex = currentCharacter - (char) 'A';
+//                int characterShifted = characterIndex + key;
+//
+//                if (characterShifted > 25) {
+//                    // korekcja powrotu do zakresu 0 - 25
+//                    characterShifted = characterShifted - 26;
+//                }
+//                // to inaczej mozna zapisac characterShifted= characterShifted % 26;
+//
+//                //wracamy do ASCII
+//                characterShifted = characterShifted + (char) 'A';
+//
+//                encrypted += (char) characterShifted;
+//            } else {
+//                //czyli w przypadku jak to nie była litera
+//                encrypted += currentCharacter;
+//            }
+//        }
+//
+//        return encrypted;
+//    }
 }
