@@ -1,3 +1,8 @@
+//Napisz mechanizm szyfrujący i deszyfrujący wykorzystujący szyfr cezara (https://pl.wikipedia.org/wiki/Szyfr_Cezara)
+//        Tekst jawny: MEZNY BADZ, CHRON PULK TWOJ I SZESC FLAG
+//        Tekst zaszyfrowany: OGBPA DCFB, EJTQP RWNM VYQL K UBGUE HNCI
+
+
 public class Porblem022 {
     public static void main(String[] args) {
         String encryptedTxt = encrypt("MEznY BaDZ, CHRON PULK TWOJ I SZESC FLAG@@##123", 2);
