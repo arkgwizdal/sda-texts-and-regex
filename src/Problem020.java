@@ -1,9 +1,10 @@
 public class Problem020 {
+    private static char signOfPattern ='*';
+    private static char bacground = ' ';
     public static void main(String[] args) {
 
-        wave(5);
+        waveAdvanced(6,10);
     }
-
     private static void wave (int numberOfWave){
 //        *      *
 //         *    *
@@ -28,14 +29,23 @@ public class Problem020 {
         }
     }
 
-//    private static void waveAdvanced (int hight, int width){
-//
-//        for(int i =0 ; i<hight ; i++){
-//
-//            for(int j =0)
-//
-//        }
-//
-//    }
+    private static void waveAdvanced (int hight, int width){
+        int sizeOfLine= hight*2;
+
+        for(int i =0 ; i<hight ; i++){
+            for(int j=0; j<width ; j++){
+             // Rysowanie wozru
+                for(int n=0; n<sizeOfLine;n++){
+                    if (n==i || n == sizeOfLine-i-1) {
+                        System.out.print(signOfPattern);
+                    }else {
+                        System.out.print(bacground);
+                    }
+                }
+            }
+            System.out.println();
+        }
+
+    }
 
 }
